@@ -3,8 +3,10 @@ from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("Login Form")
+    return render(request, 'index.html')
 
 
-def products(request):
-    return HttpResponse("List of products to add by user.")
+def shop(request):
+    return render(request, 'base.html')
+
+
