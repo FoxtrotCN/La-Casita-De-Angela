@@ -7,9 +7,16 @@ def index(request):
 
 
 def shop(request):
-    return render(request, 'products/make.html')
+    return render(request, 'base.html')
 
 
 def products(request):
     return render(request, 'products/index.html')
 
+
+def main(request):
+    return render(request, 'products/main.html')
+
+
+def make_products(request):
+    return render(request, 'products/make.html')
