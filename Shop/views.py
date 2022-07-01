@@ -20,3 +20,7 @@ def main(request):
 
 def make_products(request):
     return render(request, 'products/make.html')
+
+
+def edit_products(request):
+    return render(request, 'products/edit.html')

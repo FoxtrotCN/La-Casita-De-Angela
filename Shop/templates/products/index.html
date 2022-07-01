@@ -10,7 +10,7 @@
             <h5 class="card-title">Productos</h5>
 
             <table class="table">
-                <thead>
+                <thead style="text-align: center;">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
@@ -19,14 +19,18 @@
                     <th scope="col">Acciones</th>
                 </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider" style="text-align: center;">
                 <tr>
 
                     <td>1</td>
                     <td>Banana Hawaiana</td>
                     <td>100</td>
                     <td>Img.jpg</td>
-                    <td>Editar | Borrar</td>
+                    <td>
+                        <a id="" class="btn btn-info" role="button" href="{% url 'edit' %}">Editar</a>
+                        |
+                        <a id="" class="btn btn-danger" role="button">Borrar</a>
+                    </td>
                 </tr>
 
                 </tbody>
