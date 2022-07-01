@@ -3,10 +3,13 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'login.html')
 
 
 def shop(request):
-    return render(request, 'base.html')
+    return render(request, 'products/make.html')
 
+
+def products(request):
+    return render(request, 'products/index.html')
 
