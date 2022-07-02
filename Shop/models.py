@@ -6,4 +6,3 @@ class Product(models.Model):
     name = models.CharField("Nombre", max_length=100)
     quantity = models.IntegerField("Cantidad")
     image = models.ImageField("Imagen", upload_to='images/', null=False)
-
