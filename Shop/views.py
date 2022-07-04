@@ -30,8 +30,14 @@ def make_products(request):
     return render(request, 'products/make.html', {'form': form})
 
 
-def edit_products(request):
-    return render(request, 'products/edit.html')
+def edit_products(request, id):
+    product = Product.objects.get(id=id)
+    form = ProductForm(request.POST or None, request.FILES or None, instance=product)
+    if form.is_valid() and request.POST:
+        form.save()
+        return redirect('products')
+
+    return render(request, 'products/edit.html', {'form': form})
 
 
 def delete_products(request, id=id):

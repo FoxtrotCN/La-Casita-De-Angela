@@ -30,7 +30,7 @@
                         <img src="{{ product.image.url }}" height="100">
                     </td>
                     <td>
-                        <a id="" class="btn btn-info" role="button" href="{% url 'edit' %}">Editar</a>
+                        <a id="" class="btn btn-info" role="button" href="{% url 'edit' product.id %}">Editar</a>
                         |
                         <a id="" class="btn btn-danger" role="button" href="{% url 'delete' product.id %}">Borrar</a>
                     </td>
