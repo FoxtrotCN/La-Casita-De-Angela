@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Product
+from .forms import ProductForm
 
 
 def index(request):
@@ -17,13 +18,13 @@ def products(request):
     return render(request, 'products/index.html', {'products': products})
 
 
-
 def main(request):
     return render(request, 'products/main.html')
 
 
 def make_products(request):
-    return render(request, 'products/make.html')
+    form = ProductForm(request.POST or None)
+    return render(request, 'products/make.html', {'form': form})
 
 
 def edit_products(request):
