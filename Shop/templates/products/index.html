@@ -20,18 +20,20 @@
                 </tr>
                 </thead>
                 <tbody class="table-group-divider" style="text-align: center;">
+                {% for product in products %}
                 <tr>
 
-                    <td>1</td>
-                    <td>Banana Hawaiana</td>
-                    <td>100</td>
-                    <td>Img.jpg</td>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name}}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.image }}</td>
                     <td>
                         <a id="" class="btn btn-info" role="button" href="{% url 'edit' %}">Editar</a>
                         |
                         <a id="" class="btn btn-danger" role="button">Borrar</a>
                     </td>
                 </tr>
+                {% endfor %}
 
                 </tbody>
             </table>

@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Product
 
 
 def index(request):
@@ -11,7 +12,10 @@ def shop(request):
 
 
 def products(request):
-    return render(request, 'products/index.html')
+    products = Product.objects.all()
+    # print(products)
+    return render(request, 'products/index.html', {'products': products})
+
 
 
 def main(request):
