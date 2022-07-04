@@ -5,7 +5,7 @@ from .forms import ProductForm
 
 
 def index(request):
-    return render(request, 'login.html')
+    return render(request, 'authentication/login.html')
 
 
 def shop(request):
