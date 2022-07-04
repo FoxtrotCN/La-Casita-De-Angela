@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Product
 from .forms import ProductForm
 
@@ -23,7 +23,10 @@ def main(request):
 
 
 def make_products(request):
-    form = ProductForm(request.POST or None)
+    form = ProductForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('products')
     return render(request, 'products/make.html', {'form': form})
 
 
