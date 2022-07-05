@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Shop',
-    'Users',
+
 
 ]
 
@@ -132,3 +132,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '')
 MEDIA_URL = '/images/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/'
