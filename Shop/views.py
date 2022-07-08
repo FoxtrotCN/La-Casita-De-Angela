@@ -2,9 +2,20 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Product
-from .forms import ProductForm
+from .forms import ProductForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+
+
+def register_page(request):
+    form = RegisterForm()
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    context = {'form': form}
+    return render(request, 'authentication/register.html', context)
 
 
 def login_user(request):
@@ -25,8 +36,9 @@ def login_user(request):
         return render(request, 'authentication/login.html', {})
 
 
-# def index(request):
-#     return render(request, 'authentication/login.html')
+def log_out(request):
+    logout(request)
+    return redirect('main')
 
 
 @login_required
@@ -36,8 +48,8 @@ def shop(request):
 
 @login_required
 def products(request):
-    products = Product.objects.all()
-    # print(products)
+    products = Product.objects.filter(user=request.user)
+
     return render(request, 'products/index.html', {'products': products})
 
 
@@ -50,7 +62,9 @@ def main(request):
 def make_products(request):
     form = ProductForm(request.POST or None, request.FILES or None)
     if form.is_valid():
-        form.save()
+        product = form.save()
+        product.user = request.user
+        product.save()
         return redirect('products')
     return render(request, 'products/make.html', {'form': form})
 
