@@ -24,7 +24,7 @@
                             {% endfor %}
                         {% endif %}
 
-                        <h3 class="mb-5">Sign in</h3>
+                        <h3 class="mb-5">Inicia Sesion</h3>
 
                         <form action="" method=POST>
                             {% csrf_token %}
@@ -41,7 +41,8 @@
                                        placeholder="****"/>
                             </div>
 
-                            <input type="submit" value="Login" class="btn btn-primary">
+                            <input type="submit" value="Entrar" class="btn btn-primary">
+                            <p>No tienes una cuenta?</p><a href="{% url 'register' %}">Crea una ahora!</a>
                             <hr class="my-4">
 
                         </form>
