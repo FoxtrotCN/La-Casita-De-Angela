@@ -1,1 +1,1 @@
-web: gunicorn lacasitadeangela.wsgi
+web: gunicorn LaCasitaDeAngela.wsgi
